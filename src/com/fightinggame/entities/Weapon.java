@@ -1,5 +1,7 @@
 package com.fightinggame.entities;
 
+import com.fightinggame.utils.Vector2D;
+
 public abstract class Weapon {
     protected int damage;
     protected double range;
@@ -10,4 +12,6 @@ public abstract class Weapon {
     }
 
     public abstract void attack();
+    public abstract Vector2D getAttackEffectPosition(Vector2D playerPosition);
+    public abstract Vector2D getAttackEffectSize();
 }

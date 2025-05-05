@@ -65,6 +65,9 @@ public class Game extends JPanel implements Runnable {
         if (inputHandler.isAttackPressed()) {
             player.attack();
         }
+
+        // Cập nhật trạng thái nhân vật
+        player.update();
     }
 
     @Override

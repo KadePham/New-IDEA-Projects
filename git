@@ -1,0 +1,23 @@
+[33mcommit 35d7b320fc1310afc829187fdf38035e8c476564[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: KadePham <kadepham369@gmail.com>
+Date:   Mon May 5 12:45:22 2025 +0700
+
+    Update and optimize attack method
+
+[33mcommit cbb244ec875cf6c460e438f258378679a2ee6d39[m
+Author: KadePham <kadepham369@gmail.com>
+Date:   Mon May 5 11:16:28 2025 +0700
+
+    Update game base with basic structure
+
+[33mcommit 22f6058cb0ebf4d9014277944032053f4262c3c4[m
+Author: KadePham <kadepham369@gmail.com>
+Date:   Mon May 5 10:48:49 2025 +0700
+
+    Initilize structure of FightingGame2D
+
+[33mcommit afd362a90331ecf7f0f640587a49e91ad138d142[m
+Author: KadePham <kadepham369@gmail.com>
+Date:   Mon May 5 09:54:34 2025 +0700
+
+    Initial commit for FightingGame2D
