@@ -16,7 +16,7 @@ public class Player {
         this.position = new Vector2D(x, y);
         this.health = health;
         this.weapon = new Sword();
-        this.sprite = new Sprite("player.png"); // Tạm thời, dùng sprite giả
+        this.sprite = new Sprite("player.png", 32, 32); // Hiển thị 32x32px
         this.isAttacking = false;
         this.attackStartTime = 0;
     }

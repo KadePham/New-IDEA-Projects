@@ -1,24 +1,38 @@
 package com.fightinggame.graphics;
 
+import com.fightinggame.resources.ResourceLoader;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
 
 public class Sprite {
     private BufferedImage image;
-    private int width = 32; // Kích thước sprite giả
-    private int height = 32;
+    private int width;
+    private int height;
+    private int displayWidth;
+    private int displayHeight;
 
-    public Sprite(String path) {
-        // Tạm thời không tải hình ảnh, sẽ dùng hình chữ nhật
-        // Sau này: image = ResourceLoader.loadImage(path);
+    public Sprite(String path, int displayWidth, int displayHeight) {
+        this.image = ResourceLoader.loadImage("/sprites/" + path);
+        this.displayWidth = displayWidth;
+        this.displayHeight = displayHeight;
+        if (image != null) {
+            width = image.getWidth();
+            height = image.getHeight();
+        } else {
+            width = displayWidth;
+            height = displayHeight;
+        }
     }
 
     public void draw(Graphics g, int x, int y) {
-        // Vẽ hình chữ nhật màu xanh làm sprite giả
-        g.setColor(java.awt.Color.BLUE);
-        g.fillRect(x, y, width, height);
+        if (image != null) {
+            g.drawImage(image, x, y, displayWidth, displayHeight, null);
+        } else {
+            g.setColor(java.awt.Color.BLUE);
+            g.fillRect(x, y, displayWidth, displayHeight);
+        }
     }
 
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
+    public int getDisplayWidth() { return displayWidth; }
+    public int getDisplayHeight() { return displayHeight; }
 }
