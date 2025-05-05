@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.graphics;
 
-/**
- *
- * @author OceanShark
- */
 public class Animation {
-    
+    private Sprite[] frames;
+    private int currentFrame;
+    private long lastUpdate;
+    private long frameDuration;
+
+    public Animation(Sprite[] frames, long frameDuration) {
+        this.frames = frames;
+        this.frameDuration = frameDuration;
+        this.currentFrame = 0;
+        this.lastUpdate = System.nanoTime();
+    }
+
+    public Sprite getCurrentFrame() {
+        long now = System.nanoTime();
+        if (now - lastUpdate >= frameDuration) {
+            currentFrame = (currentFrame + 1) % frames.length;
+            lastUpdate = now;
+        }
+        return frames[currentFrame];
+    }
 }

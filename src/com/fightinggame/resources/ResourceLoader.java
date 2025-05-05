@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.resources;
 
-/**
- *
- * @author OceanShark
- */
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
 public class ResourceLoader {
-    
+    public static BufferedImage loadImage(String path) {
+        try {
+            return ImageIO.read(ResourceLoader.class.getResource(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

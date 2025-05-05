@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.entities;
 
-/**
- *
- * @author OceanShark
- */
-public class Weapon {
-    
+public abstract class Weapon {
+    protected int damage;
+    protected double range;
+
+    public Weapon(int damage, double range) {
+        this.damage = damage;
+        this.range = range;
+    }
+
+    public abstract void attack();
 }

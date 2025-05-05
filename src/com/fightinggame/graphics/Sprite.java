@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.graphics;
 
-/**
- *
- * @author OceanShark
- */
+import java.awt.image.BufferedImage;
+
 public class Sprite {
-    
+    private BufferedImage image;
+
+    public Sprite(String path) {
+        // Load image (to be implemented)
+    }
+
+    public BufferedImage getImage() {
+        return image;
+    }
 }

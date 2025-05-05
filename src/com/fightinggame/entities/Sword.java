@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.entities;
 
-/**
- *
- * @author OceanShark
- */
-public class Sword {
-    
+public class Sword extends Weapon {
+    public Sword() {
+        super(10, 1.5); // Example: 10 damage, 1.5 units range
+    }
+
+    @Override
+    public void attack() {
+        // Implement sword attack logic
+        System.out.println("Sword attack with damage: " + damage);
+    }
 }

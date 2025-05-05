@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.graphics;
 
-/**
- *
- * @author OceanShark
- */
+import java.awt.Graphics;
+import com.fightinggame.entities.Player;
+
 public class RenderEngine {
-    
+    public void render(Graphics g, Player player) {
+        // Render player and weapon (to be implemented)
+    }
 }

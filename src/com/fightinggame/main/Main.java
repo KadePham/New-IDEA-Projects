@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fightinggame.main;
 
-/**
- *
- * @author OceanShark
- */
+import javax.swing.JFrame;
+
 public class Main {
-    
+    public static void main(String[] args) {
+        JFrame window = new JFrame("Fighting Game 2D");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+
+        Game game = new Game();
+        window.add(game);
+        window.pack();
+
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+
+        game.start();
+    }
 }
