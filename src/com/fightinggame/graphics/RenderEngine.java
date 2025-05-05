@@ -5,6 +5,7 @@ import com.fightinggame.entities.Player;
 
 public class RenderEngine {
     public void render(Graphics g, Player player) {
-        // Render player and weapon (to be implemented)
+        Sprite sprite = player.getSprite();
+        sprite.draw(g, (int) player.getPosition().x, (int) player.getPosition().y);
     }
 }

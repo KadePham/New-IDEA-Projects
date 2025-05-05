@@ -4,7 +4,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class InputHandler extends KeyAdapter {
-    private boolean up, down, left, right, attack;
+    private boolean up, down, left, right;
+    private boolean attackJustPressed;
+    private boolean attackHeld;
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -13,7 +15,12 @@ public class InputHandler extends KeyAdapter {
             case KeyEvent.VK_S: down = true; break;
             case KeyEvent.VK_A: left = true; break;
             case KeyEvent.VK_D: right = true; break;
-            case KeyEvent.VK_SPACE: attack = true; break;
+            case KeyEvent.VK_SPACE:
+                if (!attackHeld) {
+                    attackJustPressed = true;
+                    attackHeld = true;
+                }
+                break;
         }
     }
 
@@ -24,7 +31,10 @@ public class InputHandler extends KeyAdapter {
             case KeyEvent.VK_S: down = false; break;
             case KeyEvent.VK_A: left = false; break;
             case KeyEvent.VK_D: right = false; break;
-            case KeyEvent.VK_SPACE: attack = false; break;
+            case KeyEvent.VK_SPACE:
+                attackHeld = false;
+                attackJustPressed = false;
+                break;
         }
     }
 
@@ -33,5 +43,9 @@ public class InputHandler extends KeyAdapter {
     public boolean isDown() { return down; }
     public boolean isLeft() { return left; }
     public boolean isRight() { return right; }
-    public boolean isAttack() { return attack; }
+    public boolean isAttackPressed() {
+        boolean result = attackJustPressed;
+        attackJustPressed = false; // Reset ngay sau khi đọc
+        return result;
+    }
 }

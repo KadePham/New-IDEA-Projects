@@ -1,5 +1,9 @@
 package com.fightinggame.main;
 
+import com.fightinggame.entities.Player;
+import com.fightinggame.graphics.RenderEngine;
+import com.fightinggame.input.InputHandler;
+import com.fightinggame.utils.Constants;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Dimension;
@@ -8,10 +12,18 @@ public class Game extends JPanel implements Runnable {
     private Thread gameThread;
     private final int FPS = 60;
     private final long TARGET_TIME = 1000 / FPS;
+    private Player player;
+    private InputHandler inputHandler;
+    private RenderEngine renderEngine;
 
     public Game() {
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         setDoubleBuffered(true);
+        inputHandler = new InputHandler();
+        addKeyListener(inputHandler);
+        setFocusable(true);
+        player = new Player(100, 100, 100); // Vị trí ban đầu (100, 100), máu 100
+        renderEngine = new RenderEngine();
     }
 
     public void start() {
@@ -41,12 +53,23 @@ public class Game extends JPanel implements Runnable {
     }
 
     private void update() {
-        // Update game state
+        // Xử lý di chuyển
+        double dx = 0, dy = 0;
+        if (inputHandler.isUp()) dy -= Constants.PLAYER_SPEED;
+        if (inputHandler.isDown()) dy += Constants.PLAYER_SPEED;
+        if (inputHandler.isLeft()) dx -= Constants.PLAYER_SPEED;
+        if (inputHandler.isRight()) dx += Constants.PLAYER_SPEED;
+        player.move(dx, dy);
+
+        // Xử lý tấn công
+        if (inputHandler.isAttackPressed()) {
+            player.attack();
+        }
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Render game objects
+        renderEngine.render(g, player);
     }
 }
