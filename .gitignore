@@ -1,0 +1,26 @@
+# NetBeans IDE
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Dependency directories
+/lib/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional: Exclude resources if not ready
+# resources/
