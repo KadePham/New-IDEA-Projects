@@ -7,18 +7,14 @@ public class Player {
     private Vector2D position;
     private int health;
     private Weapon weapon;
-    private Sprite sprite;
     private boolean isAttacking;
     private long attackStartTime;
-    private final long ATTACK_DURATION = 200_000_000; // 0.2 giây (nano giây)
+    private final long ATTACK_DURATION = 200_000_000; // 0.2 giây
 
     public Player(double x, double y, int health) {
         this.position = new Vector2D(x, y);
         this.health = health;
         this.weapon = new Sword();
-        this.sprite = new Sprite("player.png", 32, 32); // Hiển thị 32x32px
-        this.isAttacking = false;
-        this.attackStartTime = 0;
     }
 
     public void move(double dx, double dy) {
@@ -45,7 +41,6 @@ public class Player {
     // Getters
     public Vector2D getPosition() { return position; }
     public int getHealth() { return health; }
-    public Sprite getSprite() { return sprite; }
     public boolean isAttacking() { return isAttacking; }
     public Weapon getWeapon() { return weapon; }
 }

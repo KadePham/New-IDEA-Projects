@@ -1,10 +1,16 @@
 package com.fightinggame.entities;
 
+import com.fightinggame.graphics.Sprite;
 import com.fightinggame.utils.Vector2D;
 
 public class Sword extends Weapon {
+    private Sprite swordSprite;
+    private Sprite attackSprite;
+
     public Sword() {
-        super(10, 1.5); // 10 damage, 1.5 units range
+        super(10, 1.5);
+        this.swordSprite = new Sprite("sword.png", 32, 16);
+        this.attackSprite = new Sprite("sword_slash.png", 48, 24);
     }
 
     @Override
@@ -12,15 +18,21 @@ public class Sword extends Weapon {
         System.out.println("Sword attack at " + System.currentTimeMillis() + " with damage: " + damage + ", range: " + range);
     }
 
+    public Sprite getSwordSprite() {
+        return swordSprite;
+    }
+
+    public Sprite getAttackSprite() {
+        return attackSprite;
+    }
+
     @Override
     public Vector2D getAttackEffectPosition(Vector2D playerPosition) {
-        // Hiệu ứng xuất hiện bên phải nhân vật, cách 32px
-        return new Vector2D(playerPosition.x + 32, playerPosition.y);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public Vector2D getAttackEffectSize() {
-        // Kích thước hiệu ứng
-        return new Vector2D(20, 10);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

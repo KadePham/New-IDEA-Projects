@@ -24,6 +24,20 @@ public class Sprite {
         }
     }
 
+    public Sprite(String path, int frameX, int frameY, int frameWidth, int frameHeight, int displayWidth, int displayHeight) {
+        this.image = ResourceLoader.loadImage("/sprites/" + path);
+        this.displayWidth = displayWidth;
+        this.displayHeight = displayHeight;
+        if (image != null) {
+            width = frameWidth;
+            height = frameHeight;
+            image = image.getSubimage(frameX * frameWidth, frameY * frameHeight, frameWidth, frameHeight);
+        } else {
+            width = displayWidth;
+            height = displayHeight;
+        }
+    }
+
     public void draw(Graphics g, int x, int y) {
         if (image != null) {
             g.drawImage(image, x, y, displayWidth, displayHeight, null);

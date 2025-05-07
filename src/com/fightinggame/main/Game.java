@@ -22,7 +22,7 @@ public class Game extends JPanel implements Runnable {
         inputHandler = new InputHandler();
         addKeyListener(inputHandler);
         setFocusable(true);
-        player = new Player(100, 100, 100); // Vị trí ban đầu (100, 100), máu 100
+        player = new Player(100, 100, 100);
         renderEngine = new RenderEngine();
     }
 
@@ -53,7 +53,6 @@ public class Game extends JPanel implements Runnable {
     }
 
     private void update() {
-        // Xử lý di chuyển
         double dx = 0, dy = 0;
         if (inputHandler.isUp()) dy -= Constants.PLAYER_SPEED;
         if (inputHandler.isDown()) dy += Constants.PLAYER_SPEED;
@@ -61,12 +60,10 @@ public class Game extends JPanel implements Runnable {
         if (inputHandler.isRight()) dx += Constants.PLAYER_SPEED;
         player.move(dx, dy);
 
-        // Xử lý tấn công
         if (inputHandler.isAttackPressed()) {
             player.attack();
         }
 
-        // Cập nhật trạng thái nhân vật
         player.update();
     }
 
